@@ -1,0 +1,6 @@
+<div>
+     <div ng-show="!record.scheduleList.length">{{record.interviewAvailability.date| date: 'MM/dd/yyyy'}} {{record.interviewAvailability.time| date: 'HH:mm'}}</div>
+     <div ng-repeat="schedule in record.scheduleList">
+         {{schedule.date | date: 'MM/dd/yyyy'}} {{schedule.time| date: 'HH:mm'}}
+     </div>
+</div>

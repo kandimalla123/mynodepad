@@ -1,0 +1,5 @@
+</br>
+<b>Sort By</b>
+<select ng-model="currentSortField" ng-options="record.displayName for record in gData.activeProfileSortFileds"
+      data-ng-change="loadProfiles(currentSortField)">
+</select>

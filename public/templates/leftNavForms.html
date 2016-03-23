@@ -1,0 +1,17 @@
+<div class="mainLefDiv">
+    <accordion>
+         <accordion-group is-open="sheduleFormData.isFormOpen">
+             <accordion-heading>{{sheduleFormData.formTitle}}</accordion-heading>
+                <div ng-include src="'templates/addSheduleForm.html'"></div>
+         </accordion-group>
+         <accordion-group is-open="false">
+             <accordion-heading>Add Requirement</accordion-heading>
+                <p>this is for add requremnt form</p>
+         </accordion-group>
+         <accordion-group is-open="profileFormData.isFormOpen">
+             <accordion-heading>{{profileFormData.formTitle}}</accordion-heading>
+             <div ng-include src="'templates/addProfileForm.html'"></div>          
+         </accordion-group>
+   </accordion>
+</div><!-- end mainLefDiv -->
+ 

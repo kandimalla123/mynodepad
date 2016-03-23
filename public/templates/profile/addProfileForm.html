@@ -1,0 +1,58 @@
+           <div><label class="success">{{profileFormData.validMsg}}</label></div>
+             <form name="profileForm" ng-submit="submitProfileForm()">
+                 <div class="profileLeft">&nbsp;</div>
+                 <div class="profileRight">&nbsp;</div>
+                 <label class="profileLeft">Candidate Name:  </label>
+                 <div class="profileRight"><input name="candidateName" ng-model="profileFormData.candidateName" type="text"  required /></div>
+                 <label class="profileLeft">Contact Number: </label> 
+                 <div class="profileRight"><input name="contactNumber" ng-model="profileFormData.contactNumber" type="text" required /></div>
+                 <label class="profileLeft">Email: </label> 
+                 <div class="profileRight"><input name="eMail" ng-model="profileFormData.eMail" type="email"  required /></div>
+                 <label class="profileLeft">SkypeID: </label>
+                 <div class="profileRight"><input name="skypeId" ng-model="profileFormData.skypeId" type="text"  required /></div>
+                 <label class="profileLeft">Current Location: </label>
+                 <div class="profileRight">
+                    Country:
+                    <select ng-model="profileFormData.currentLocation.country" ng-options="country.code for country in lData.countryList" 
+                           data-ng-change="updateStates()">
+                    </select>
+                 </div>
+                 <label class="profileLeft">&nbsp; </label>
+                 <div class="profileRight">
+                      State:
+                     <select ng-model="profileFormData.currentLocation.state" ng-options="state.code for state in selectedCountryStates">
+                            <option value="">Select state</option>
+                     </select>
+ 
+                 </div>
+                 <label class="profileLeft">&nbsp; </label>
+                 <div class="profileRight">
+                     City:<input name="currentCity" ng-model="profileFormData.currentLocation.city" type="text"  required />
+                 </div>
+                 <label class="profileLeft">Visa Status: </label>
+                 <div class="profileRight">
+                     <select ng-model="profileFormData.visaSelectedStatus" ng-options="status.name for status in lData.visaStatusList"></select>
+                 </div>
+                 <label class="profileLeft">Work Availability: </label>
+                 <div class="profileRight">
+                     <select ng-model="profileFormData.workAvailSelectedStatus" ng-options="status.name for status in lData.workAvailStatusList"></select>
+                 </div>
+                 <label class="profileLeft">Interview Availability: </label>
+                 <div class="profileRight"><input name="interviewAvailDate" ng-model="profileFormData.interviewAvailability.date" type="date"  value="{{profileFormData.interviewAvailability.date | date: 'MM/dd/yyyy'}}" required />
+                                           <input name="interviewAvailTime" ng-model="profileFormData.interviewAvailability.time" type="time"  value="{{profileFormData.interviewAvailability.time | date: 'MM/dd/yyyy'}}" required /> 
+                 </div>
+                 <div>
+                     <label class="profileLeft">Resume:</label>
+                     <div class="profileRight">
+                         <input type="file" file-model onchange="angular.element(this).scope().setFile(this)"/><label>{{profileFormData.fileSizeFromat}}</label>
+                     </div>
+                      
+                 </div>
+                 <div>
+                 
+                     <div class="profileLeft">&nbsp;</div> 
+                     <div class="profileRight"><button class="btn btn-primary" type="submit">Submit</button></div>
+                  
+                 </div>
+           </form>
+  

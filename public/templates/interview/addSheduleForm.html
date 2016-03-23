@@ -1,0 +1,42 @@
+            <div><label class="success">{{sheduleFormData.validMsg}}</label></div>
+             <form name="sheduleForm" validate ng-submit="submitForm()">
+                 <div class="left">&nbsp;</div>
+                 <div class="right">&nbsp;</div>
+                 <label class="left">Interviewer:</label>
+           <!--  <div class="right"><input name="interviewer" type="text"  ng-model="sheduleFormData.interviewer" required /></div> -->
+                 <div class="right"><select ng-model="sheduleFormData.interviewer" ng-options="interviewer.name for interviewer in gData.interviewerList"></select></div>
+                 <label class="left">Interviewee:</label> 
+                 <div class="right"><input type="text"  ng-model="sheduleFormData.interviewee" required disabled /></div>
+                 <label class="left">Date:</label> 
+                 <div class="right"><input type="date"  ng-model="sheduleFormData.date" value="{{sheduleFormData.date | date: 'MM/dd/yyyy'}}" required /></div>
+                 <label class="left">Time: </label>
+                 <div class="right"><input type="time"  ng-model="sheduleFormData.time" value="{{sheduleFormData.time | date: 'MM/dd/yyyy'}}" required /></div>
+                 <label class="left">Status: </label>
+                 <div class="right"><select ng-model="sheduleFormData.selectedStatus" ng-options="status.name for status in lData.interviewStatusList"></select></div>
+                 <div ng-controller="SkillCtrl">
+                     <label class="left">Feedback:</label>
+                     <div class="right"><input type="button" value="+" ng-click="addRow()"/></div>
+                     <div ng-repeat="row in rows">
+                         <div class="left">&nbsp;</div> 
+                         <div class="right">
+                            <span skill-display row-skills="skills" selected-skill="selectedSkill" on-skill-selected="updateSkillSlected(selectedSkill,$index)"></span>
+                            <span ng-init="rateFunction(1,$index)"></span>
+                            <span class="star-rating" star-rating rating-value="ratingValue" data-max="10" on-rating-selected="rateFunction(rating,$index)"></span>
+                            <span>({{ratingValue}})</span>
+                            <span><input type="button" value="-" ng-click="removeRow($index)"></input></span>
+                        </div>
+                    </div>
+                </div>
+           
+                 <div>
+                    <label class="left">Comments:</label>
+                    <div class="right"><textarea  ng-model="sheduleFormData.comments"  rows="5"></textarea></div>
+               </div>
+                
+               <div>
+                  <div class="left">&nbsp;</div> 
+                  <div class="right"><button class="btn btn-primary" type="submit">Submit</button></div>
+               </div>
+               
+           </form>
+  

@@ -1,0 +1,19 @@
+.app-tooltip + .tooltip > .tooltip-inner {
+  background-color: #fff;
+  border: 1px solid #808080;
+  color: #000000;
+}
+.app-tooltip + .tooltip > .tooltip-arrow { 
+	border-bottom-color:#808080; 
+}
+
+.app-popover + .popover > .popover-inner {
+  background-color: #fff;
+  color: #000000;
+ 
+}
+
+.popover{
+	
+	 max-width: 50%;
+}

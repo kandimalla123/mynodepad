@@ -1,0 +1,9 @@
+<a href="" ng-click="isCollapsed = !isCollapsed">{{record.contactNumber}}</a>
+<div collapse="isCollapsed">
+    <b>Email:</b>{{record.eMail}}<br>
+    <b>SkypeId:</b>{{record.skypeId}}<br>
+    <b>Availability:</b>{{record.workAvailSelectedStatus.name}}<br>
+    <b>Visa:</b>{{record.visaSelectedStatus.name}}<br>
+    <b>Location:</b>{{record.currentLocation.city}},{{record.currentLocation.state.code}},{{record.currentLocation.country.code}}<br>
+</div>
+ 

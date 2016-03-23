@@ -1,0 +1,74 @@
+ <table>
+    <tr>
+        <td>
+             <div ng-controller="locationController as record">
+                   <table>
+                         <tr>
+                           <td>[ <a href="#" ng-click="addCountry()">Add Country</a> ]</td>
+                           <td>[ <a href="#" ng-click="addState()">Add State</a> ]</td>
+                       </tr>
+                    </table>
+                    <table>
+                          <tr ng-repeat="record in countryRecords">
+                            <td>{{record.code}}</td>
+                            <td></td>
+                          </tr>
+                   </table>
+                   <table>
+                         <tr ng-repeat="record in stateRecords">
+                            <td>{{record.code}}</td>
+                            <td></td>
+                         </tr>
+                   </table>
+           </div>
+        </td>
+        <td>
+            <div ng-controller="statusController as record">
+               <table>
+                     <tr>
+                         <td>[ <a href="#" ng-click="addVisaStatus()">Add visaStatus</a> ]</td>
+                         <td>[ <a href="#" ng-click="addWorkAvailStatus()">Add workAvailStatus</a> ]</td>
+                         <td>[ <a href="#" ng-click="addInterviewStatus()">Add interviewStatus</a> ]</td>
+                    </tr>
+              </table>
+              <table>
+                   <tr ng-repeat="record in visaStatusRecords">
+                      <td>{{record.name}}</td>
+                      <td></td>
+                   </tr>
+             </table>
+             <table>
+                  <tr ng-repeat="record in workAvailStatusRecords">
+                     <td>{{record.name}}</td>
+                     <td></td>
+                  </tr>
+            </table>
+            <table>
+                <tr ng-repeat="record in interviewStatusRecords">
+                   <td>{{record.name}}</td>
+                   <td></td>
+                </tr>
+            </table>
+           </div>
+      </td>
+      <td>
+          <div ng-controller="interviewerController as record">
+              <table>
+                     <tr>
+                         <td>[ <a href="#" ng-click="openInterviewerFormModal()">+/ Interviewer</a> ]</td>
+                    </tr>
+              </table>
+          </div>
+      </td>
+       <td>
+          <div ng-controller="SkillCtrl as record">
+              <table>
+                     <tr>
+                         <td>[ <a href="#" ng-click="openSkillForm('lg')">+/- Skill</a> ]</td>
+                    </tr>
+              </table>
+          </div>
+      </td>
+      
+    </tr>  
+</table> 

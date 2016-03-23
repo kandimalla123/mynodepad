@@ -1,0 +1,20 @@
+  
+  
+  <div class="mainTableDiv" ng-controller="tabController as tab">
+    <tabset>
+           <tab heading="{{tabs[2].title}}" active="true" select="tabSelcted(tabs[2].title)"> 
+               <div ng-controller="profileController as record">
+                   <div ng-include src="'templates/profile/profileTab.html'"></div>
+               </div>
+            </tab>
+            <tab heading="{{tabs[0].title}}" active="false" select="tabSelcted(tabs[0].title)"> 
+               <div ng-controller="interviewController as record">
+                   <div ng-include src="'templates/interview/sheduledInterviewsTab.html'"></div>
+               </div>
+            </tab>
+            <tab heading="{{tabs[1].title}}" active="false"> 
+                <p>Reqirements list here</p>
+            </tab>
+ 
+    </tabset> 
+ </div>  

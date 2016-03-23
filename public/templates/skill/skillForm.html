@@ -1,0 +1,30 @@
+ 
+<div><label class="success">{{skillFormData.validMsg}}</label></div>
+<form name="skillForm" validate ng-submit="addSkill()">
+   <div>
+       <label>Skill Name:</label>
+            <input name="inputSkill" type="text"  ng-model="skillFormData.inputSkill" required/> <button type="submit">+</button>
+   </div>
+   <hr></hr>
+   <div> 
+     <table>
+           <thead>
+                  <tr>
+                        <th>Name</th>
+                        <th>Display</th>
+                   </tr>
+           </thead>
+           <tbody> 
+                   <tr ng-repeat="record in skills">
+                       <td>{{record.name}}</td>
+                       <td><input type="checkbox" ng-click="updateSkill(record)" ng-model="record.isDisplay"></td>
+                    </tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                 <td></td>
+               </tr>  
+          </tfoot>
+    </table>
+   </div> 
+</form>

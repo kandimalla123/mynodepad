@@ -1,0 +1,40 @@
+ <table class="viewFormat">
+         <thead>
+                     <tr>
+                        <th>Contact Details</th>
+                        <th>Date</th>
+                        <th>Interview Status</th>
+                        <th>Actions</th>
+                     </tr>
+          </thead>
+          <tbody> 
+                     <tr ng-repeat="record in profilePagedItems">
+                       <td ng-show="{{record.profile.showDownloadLink}}"><a href="{{record.profile.resumeLink}}">{{record.candidateName}}</a><br>
+                          <div ng-include src="'templates/profile/AdditionalContacts.html'"></div>
+                       </td>
+                      <td ng-show="!{{record.profile.showDownloadLink}}"><b>Name:</b>{{record.candidateName}}<br>
+                         <div ng-include src="'templates/profile/AdditionalContacts.html'"></div>
+                      </td>
+             <!--            <td>{{record.visaSelectedStatus.name}}</td> -->
+                       <td>
+                          <!--
+                           {{record.interviewAvailability.date| date: 'MM/dd/yyyy'}}  
+                           <a href="#" ng-click="openAddInterviewForm('lg',record)">{{record.interviewAvailability.time| date: 'HH:mm'}}</a><br>
+                           -->
+                           <div ng-include src="'templates/profile/interviewDate.html'"></div>
+                      </td>
+                      <td><div ng-include src="'templates/profile/interviewStatus.html'"></div></td>
+                       <td>
+                          <a href="#" ng-click="openEditProfileForm('lg',record)">edit</a><br> 
+                   <!--       <a href="#" ng-click="delProfileRecord(record)">delete</a> -->
+                      </td>
+                     </tr>
+          </tbody>
+          <tfoot>
+                 <td colspan="8">
+                          <pagination  ng-model="profilePaginationData.currentPage" total-items="profilePaginationData.total"
+                                     max-size="profilePaginationData.maxSize" boundary-links="true">
+                          </pagination>
+                  </td>
+          </tfoot>
+</table>

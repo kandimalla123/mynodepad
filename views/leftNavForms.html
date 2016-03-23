@@ -1,0 +1,59 @@
+          <div class="mainLefDiv">
+             <form name="sheduleForm" novalidate ng-submit="submitForm()">
+                 <div class="left">&nbsp;</div>
+                 <div class="right">&nbsp;</div>
+                 <label class="left">Interviewer:</label>
+                 <div class="right"><input name="interviewer" type="text"  ng-model="interviewer" required /></div>
+                 <label class="left">Interviewee:</label> 
+                 <div class="right"><input type="text"  ng-model="interviewee" required /></div>
+                 <label class="left">Date:</label> 
+                 <div class="right"><input type="date"  ng-model="date" value="{{date | date: 'MM/dd/yyyy'}}" required /></div>
+                 <label class="left">Time: </label>
+                 <div class="right"><input type="time"  ng-model="time" value="{{time | date: 'MM/dd/yyyy'}}" required /></div>
+                 <label class="left">Status: </label>
+                 <div class="right"><select ng-model="selectedStatus" ng-options="status.name for status in statusList"></select></div>
+                 <div ng-controller="SkillCtrl">
+                     <label class="left">Feedback:</label>
+                     <div class="right"><input type="button" value="+" ng-click="addRow()"/></div>
+                     <div ng-repeat="row in rows">
+                         <div class="left">&nbsp;</div> 
+                         <div class="right">
+                            <span skill-display row-skills="skills" selected-skill="selectedSkill" on-skill-selected="updateSkillSlected(selectedSkill,$index)"></span>
+                            <span ng-init="rateFunction(1,$index)"></span>
+                            <span class="star-rating" star-rating rating-value="ratingValue" data-max="10" on-rating-selected="rateFunction(rating,$index)"></span>
+                            <span>({{ratingValue}})</span>
+                            <span><input type="button" value="-" ng-click="removeRow($index)"></input></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="left">Comments:</label>
+                    <div class="right"><textarea  ng-model="comments"  rows="5"></textarea></div>
+               </div>
+               <div>
+                     <label class="left">Resume:</label>
+                     <div class="right">
+                         <input type="file" file-model onchange="angular.element(this).scope().setFile(this)"/><label>{{fileSizeFromat}}</label>
+                     </div>
+                      
+               </div>
+                <!--
+               <div ng-controller ="FileUploadCtrl">
+                   <label class="left">Resume:</label>
+                   <div class="right">
+                       <table>
+                            <tr>
+                              <td><input type="file" file-model="myFile"/></td>
+                              <td><button ng-click="uploadFile()">upload resume</button></td> 
+                          </tr>
+                       </table>
+                  </div>
+              </div>
+               -->
+              <div>
+                  <div class="left">&nbsp;</div> 
+                  <div class="right"><button type="submit">Submit</button></div>
+              </div>
+           </form>
+        </div><!-- end mainLefDiv -->
+        

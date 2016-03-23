@@ -1,0 +1,46 @@
+           <table class="viewFormat">
+               <thead>
+                     <tr>
+                        <!--<th>Id</th> -->
+                        <th>Interviewer</th>
+                        <th>Interviewee</th>
+                        <th>Date</th>
+                        <th>Time</th> 
+                        <th>Status</th>
+                        <th>Feedback</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                     </tr>
+               </thead>
+                <tbody> 
+                     <tr ng-repeat="record in pagedItems">
+                       <!--<td>{{record.id}}</td> -->
+                       <td>{{record.interviewer.name}}</td>
+                       <td ng-show="{{record.profile.showDownloadLink}}"><a href="{{record.profile.resumeLink}}">{{record.interviewee}}</a></td>
+                       <td ng-show="!{{record.profile.showDownloadLink}}">{{record.interviewee}}</td>
+                       <td>{{record.date | date: 'MM/dd/yyyy'}}</td>
+                       <td>{{record.time| date: 'HH:mm'}}</td>
+                       <td>{{record.status.name}}</td>
+                       <td><div ng-if="record.status.name==gData.interviewStatusList[2].name">
+                              <a href="#" ng-click="open('',record)"><img ng-src="images/Feedback-50.png" class="imageF"/></a>
+                           </div>
+                           <div ng-if="record.status.name!=gData.interviewStatusList[2].name">
+                           </div>
+                       </td>
+                       <!-- <td><a href="#" ng-click="open('',record)"><img ng-src="images/Feedback-50.png" class="imageF"/></a></td>  -->
+                       <td><button popover-trigger="mouseenter" popover="{{record.comments}}" class="app-popover">
+                          <img ng-src="images/comments.png" class="imageC"/></button></td>
+                       <td>
+                          <a href="#" ng-click="openEditInterviewForm('lg',record)">edit</a><br> 
+                          <a href="#" ng-click="deleteRecord(record)">delete</a>
+                       </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                       <td colspan="8">
+                          <pagination  ng-model="data.currentPage" total-items="data.total"
+                                     max-size="data.maxSize" boundary-links="true">
+                          </pagination>
+                       </td>
+                </tfoot>
+             </table>

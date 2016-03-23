@@ -1,0 +1,34 @@
+<div><label class="success">{{interviewerFormData.validMsg}}</label></div>
+<form name="skillForm" validate ng-submit="addInterviewer()">
+   <div>
+        <label>Name:</label>
+        <input name="inputName" type="text"  ng-model="interviewerFormData.inputName" required/> 
+        <label>Email:</label>
+        <input name="inputEmail" type="text"  ng-model="interviewerFormData.inputEmail" required/> 
+        <button type="submit">+</button>
+       
+   </div>
+   <hr></hr>
+   <div> 
+     <table>
+           <thead>
+                  <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+           </thead>
+           <tbody> 
+                   <tr ng-repeat="record in interviewers">
+                       <td>{{record.name}}</td>
+                       <td>{{record.eMail}}</td>
+                       <td><input type="checkbox" ng-click="updateInterviewerById(record)" ng-model="record.isDisplay" disabled></td>
+                    </tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                 <td></td>
+               </tr>  
+          </tfoot>
+    </table>
+   </div> 
+</form>

@@ -1,0 +1,19 @@
+.profileLeft {
+    width: 35%;
+    float: left;
+    text-align: right;
+}
+.profileRight {
+    width: 60%;
+    margin-left: 10px;
+    float:left;
+    margin-bottom:10px;
+}
+
+table.linkFormat
+{
+     width: 100%;
+     border-collapse:collapse;
+     text-align:left;
+     color: #606060;
+}

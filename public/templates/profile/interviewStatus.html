@@ -1,0 +1,13 @@
+<div>
+     <div ng-show="!record.scheduleList.length">
+         <a href="#" ng-click="openAddInterviewForm('lg',record)">{{gData.interviewStatusList[4].name}}</a><br>
+     </div>
+     <div ng-repeat="schedule in record.scheduleList">
+        <div ng-if="schedule.status.name==gData.interviewStatusList[4].name">
+           <a href="#" ng-click="openEditInterviewForm('lg',schedule)">{{gData.interviewStatusList[4].name}}</a><br>
+        </div>
+        <div ng-if="schedule.status.name!=gData.interviewStatusList[4].name">
+           {{schedule.status.name}}
+        </div>
+     </div>
+</div>
